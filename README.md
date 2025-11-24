@@ -5,7 +5,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/harishc-dev/Restaurant-billing-app?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/harishc-dev/Restaurant-billing-app?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/harishc-dev/Restaurant-billing-app)
-![GitHub license](https://img.shields.io/github/license/harishc-dev/Restaurant-illing-app)
+![GitHub license](https://img.shields.io/github/license/harishc-dev/Restaurant-billing-app)
 
 ### 🎯 A Real-Time Point of Sale System for School Event Food Stalls
 
@@ -424,6 +424,7 @@ For issues, questions, or feature requests:
 *Delicious food, seamless service — powered by code.*
 
 </div>
+
 
 
 
