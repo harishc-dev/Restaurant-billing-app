@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Login - Nexus Of Delights</title>
+  <link rel="stylesheet" href="/public/css/tailwind.css?v=<%= (typeof assetVersion !== 'undefined' ? assetVersion : Date.now()) %>" />
+  <link rel="stylesheet" href="/public/css/custom.css?v=<%= (typeof assetVersion !== 'undefined' ? assetVersion : Date.now()) %>" />
+</head>
+<body class="neon-body">
+  <main class="login-hero flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      <div class="brand-row flex gap-5 mb-6">
+        <img class="brand-logo" src="/public/img/logo.png?v=<%= (typeof assetVersion !== 'undefined' ? assetVersion : Date.now()) %>" alt="Brand logo" onerror="this.style.display='none'" />
+        <div class="brand-text">
+          <h1 class="text-2xl font-bold leading-tight">Nexus Of Delights</h1>
+          <div class="text-sm text-slate-600">Your Destination for Delicious discoveries</div>
+        </div>
+      </div>
+
+        <div class="rounded-xl shadow p-6 login-card relative z-10">
+        <h2 class="text-lg font-semibold text-center mb-4">Login</h2>
+        <% if (error) { %>
+          <div class="mb-3 text-sm text-red-600"><%= error %></div>
+        <% } %>
+        <form action="/login" method="post" class="space-y-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-600">Username</label>
+            <input name="username" class="w-full border rounded px-3 py-3 text-lg" placeholder="" required />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600">Password</label>
+            <input type="password" name="password" class="w-full border rounded px-3 py-3 text-lg" placeholder="••••••••" required />
+          </div>
+          <button class="huge-btn" aria-label="Sign in">LOGIN</button>
+        </form>
+        
+      </div>
+    </div>
+  </main>
+</body>
+</html>

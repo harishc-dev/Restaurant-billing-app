@@ -1,0 +1,15 @@
+<%- include('partials/head', { title: 'Messages', showBack: true }) %>
+<div class="mb-3 flex items-center justify-between">
+  <div class="text-sm">Group: <span class="font-semibold"><%= serverName %></span></div>
+  <div class="text-xs text-slate-500">Newest at bottom</div>
+</div>
+<div class="bg-white rounded-xl shadow divide-y" id="msg-list">
+  <% (messages||[]).forEach(function(m){ %>
+    <div class="p-3 flex items-start gap-3">
+      <div class="text-xs px-2 py-0.5 rounded bg-slate-100"><%= m.side %></div>
+      <div class="flex-1"><%= m.text %></div>
+      <div class="text-xs text-slate-500"><%= new Date(m.ts).toLocaleString() %></div>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/foot') %>

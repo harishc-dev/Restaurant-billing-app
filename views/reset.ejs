@@ -1,0 +1,63 @@
+<%- include('partials/head', { title: 'Reset System', showBack: true }) %>
+<div class="grid gap-6">
+  <h2 class="text-2xl font-bold">System Reset</h2>
+  <p class="text-sm text-slate-500">Perform a token reset (per group) or full data reset. Full reset clears orders, tokens, messages, and availability for both Boys and Girls. Dishes (items.json) are preserved.</p>
+
+  <form id="reset-form" class="space-y-4">
+    <div class="space-y-2">
+      <label class="block text-xs font-semibold mb-1">Reset Scope</label>
+      <select name="scope" class="w-full px-3 py-2">
+        <option value="tokens">Tokens Only</option>
+        <option value="all">All Data</option>
+      </select>
+      <div id="token-server-row" class="hidden">
+        <label class="block text-xs font-semibold mb-1">Token Group</label>
+        <select name="server" class="w-full px-3 py-2">
+          <option value="1">Boys only</option>
+          <option value="2">Girls only</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-1">
+      <label class="block text-xs font-semibold mb-1">Reset Password</label>
+  <input type="password" name="password" placeholder="Enter Password for each action" class="w-full px-3 py-2" />
+
+    </div>
+    <button class="btn-danger w-full" type="submit">Run Reset</button>
+  </form>
+
+  <div id="reset-result" class="text-sm"></div>
+</div>
+<script>
+(function(){
+  const form = document.getElementById('reset-form');
+  const result = document.getElementById('reset-result');
+  const scopeSel = form.querySelector('select[name="scope"]');
+  const tokenRow = document.getElementById('token-server-row');
+  function updateRow(){ tokenRow.classList.toggle('hidden', scopeSel.value !== 'tokens'); }
+  scopeSel.addEventListener('change', updateRow); updateRow();
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const fd = new FormData(form);
+    const payload = { scope: fd.get('scope'), password: fd.get('password') };
+    if(payload.scope === 'tokens'){
+      const sv = Number(fd.get('server'));
+      payload.server = (sv===1 || sv===2) ? sv : 1;
+    }
+    result.textContent = 'Working...';
+    try{
+      const res = await fetch('/admin/reset', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+      const data = await res.json().catch(()=>({ error: 'Bad response' }));
+      if(res.ok){
+  const scope = data.scope + (typeof data.server !== 'undefined' ? ` (${data.server===1?'Boys':'Girls'})` : '');
+        result.textContent = 'Reset completed: ' + scope;
+      } else {
+        result.textContent = 'Failed: ' + (data.error||'Unknown error');
+      }
+    } catch(err){
+      result.textContent = 'Failed: network error';
+    }
+  });
+})();
+</script>
+<%- include('partials/foot') %>

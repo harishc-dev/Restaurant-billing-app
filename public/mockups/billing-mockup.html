@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Nexus Of Delights – Mockup</title>
+  <link rel="stylesheet" href="/public/css/tailwind.css?v=1" />
+  <link rel="stylesheet" href="/public/css/custom.css?v=1" />
+  <style>
+   
+    .center-stage{ min-height:calc(100svh - 160px); display:flex; align-items:center; justify-content:center }
+    .glass-section{ background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); border:1px solid rgba(158,110,255,.22); border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.45) }
+    .cta{ width:100%; max-width:560px }
+    .cta-grid{ display:grid; grid-template-columns:1fr; gap:14px }
+    @media (min-width: 480px){ .cta-grid{ grid-template-columns:1fr 1fr } }
+    .btn-hero{ padding:1rem 1.2rem; border-radius:16px; font-weight:800; font-size:1.05rem; letter-spacing:.3px; }
+    .btn-send{ background:linear-gradient(135deg, var(--accent1), #6b4bff); color:#fff; box-shadow:0 16px 38px rgba(158,110,255,.35) }
+    .btn-receive{ background:linear-gradient(135deg, #5c9dff, #6b4bff); color:#fff; box-shadow:0 16px 38px rgba(108,155,255,.35) }
+    .btn-hero:hover{ transform:translateY(-1px) }
+
+    .items-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+    .item-card .price{ color:#d8d6fb }
+    .item-card .add{ padding:.35rem .7rem; border-radius:10px; background:linear-gradient(180deg, var(--accent2), var(--accent1)); color:#fff; font-weight:700; font-size:.9rem }
+
+    .bill-bar{ position:sticky; bottom:0; left:0; right:0; padding:10px 0; background:linear-gradient(180deg, rgba(7,11,23,.2) 0%, rgba(7,11,23,.65) 30%, rgba(7,11,23,.85) 100%); backdrop-filter:saturate(140%) blur(6px); border-top:1px solid rgba(158,110,255,.2) }
+    .proceed{ background:linear-gradient(135deg, var(--accent1), var(--accent2)); color:#fff; padding:.8rem 1.1rem; border-radius:14px; font-weight:800; box-shadow:0 12px 28px rgba(158,110,255,.35) }
+
+  
+    #messages-modal{ background:linear-gradient(180deg, rgba(10,12,26,.75), rgba(10,12,26,.85)); backdrop-filter:none }
+    #messages-modal .modal-card{ border-radius:18px }
+    #messages-modal .close-btn{ position:absolute; top:10px; right:10px; background:rgba(255,255,255,.08); border:1px solid rgba(231,86,181,.45); color:#fff; width:32px; height:32px; border-radius:9999px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 14px rgba(231,86,181,.35) }
+    #messages-modal .input-row{ display:flex; gap:8px; }
+    #messages-modal input{ flex:1 }
+  </style>
+</head>
+<body class="neon-body">
+
+  <header class="w-full sticky top-0 z-10">
+    <div class="max-w-3xl mx-auto px-4 safe-header flex items-center justify-between">
+  <h1 class="font-bold text-lg">Nexus Of Delights</h1>
+      <div class="flex items-center gap-2">
+        <button class="px-3 py-1 bg-slate-100 text-slate-900 rounded text-sm hover:bg-slate-200 transition">Messages</button>
+        <button class="px-3 py-1 bg-slate-100 text-slate-900 rounded text-sm hover:bg-slate-200 transition">Back</button>
+        <button class="px-3 py-1 btn-danger text-sm">Logout</button>
+      </div>
+    </div>
+  </header>
+
+ 
+  <main class="max-w-3xl mx-auto px-4 py-4">
+    <section class="text-center mb-6">
+  <h2 class="text-2xl font-extrabold mb-1">Nexus Of Delights</h2>
+      <p class="text-sm text-slate-300">Make billing fast — choose an action.</p>
+    </section>
+
+   
+    <section class="center-stage">
+      <div class="cta">
+        <div class="cta-grid">
+          <button class="btn-hero btn-send">SEND BILL</button>
+          <button class="btn-hero btn-receive">RECEIVE BILL</button>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="mt-2 mb-24">
+      <div class="items-grid">
+        <div class="card item-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">French Fries</div>
+              <div class="price text-sm">₹40</div>
+            </div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+        <div class="card item-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Cold Coffee</div>
+              <div class="price text-sm">₹60</div>
+            </div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+        <div class="card item-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Veg Sandwich</div>
+              <div class="price text-sm">₹50</div>
+            </div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+        <div class="card item-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">Momos</div>
+              <div class="price text-sm">₹70</div>
+            </div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="bill-bar">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="glass-section p-3">
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-slate-300 text-sm">Current Bill</div>
+          <div class="font-semibold">#B12</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="font-semibold">Grand Total</div>
+            <div class="text-slate-300 text-sm">Taxes inclusive</div>
+          </div>
+          <div class="text-xl font-extrabold">₹ 240</div>
+        </div>
+        <div class="mt-3 flex items-center justify-end">
+          <button class="proceed">Proceed</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="messages-modal">
+    <div class="modal-card w-[92%] max-w-[520px] max-h-[80vh] relative p-3">
+      <button class="close-btn" title="Close">✖</button>
+      <div class="modal-header">
+        <div class="font-semibold">Messages — Boys</div>
+      </div>
+      <div class="modal-body space-y-2">
+        <div class="text-sm text-white/90">Kitchen: Fries will be ready in 2 mins.</div>
+        <div class="text-sm text-white/90">Billing: Noted. Sending next order shortly.</div>
+      </div>
+      <div class="modal-footer">
+        <div class="input-row w-full">
+          <input type="text" placeholder="Type a message..." />
+          <button class="btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

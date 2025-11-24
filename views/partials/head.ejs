@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title><%= title || 'Nexus Of Delights' %></title>
+  <% const __v = (typeof assetVersion !== 'undefined' ? assetVersion : Date.now()); %>
+  <link rel="stylesheet" href="/public/css/tailwind.css?v=<%= __v %>" />
+  <link rel="stylesheet" href="/public/css/custom.css?v=<%= __v %>" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="neon-body">
+  <header class="w-full sticky top-0 z-10 bg-slate-900 text-white">
+  <div class="max-w-3xl mx-auto px-4 safe-header flex items-center justify-between">
+  <h1 class="font-bold text-lg">Nexus Of Delights</h1>
+
+    <div class="flex items-center gap-2">
+      <% if (typeof showMessages !== 'undefined' && showMessages) { %>
+        <button id="btn-messages" class="relative px-3 py-1 bg-slate-100 text-slate-900 rounded text-sm hover:bg-slate-200 transition">
+          <span id="msg-label">Messages</span>
+        </button>
+      <% } %>
+
+      <% if (typeof showLogout !== 'undefined' && showLogout) { %>
+        <form action="/logout" method="post">
+          <button class="px-3 py-1 bg-red-500 rounded text-white text-sm hover:bg-red-600 transition">
+            Logout
+          </button>
+        </form>
+      <% } else if (typeof showBack !== 'undefined' && showBack) { %>
+        <a href="/" class="px-3 py-1 bg-slate-100 text-slate-900 rounded text-sm hover:bg-slate-200 transition">
+          Back
+        </a>
+      <% } %>
+    </div>
+  </div>
+</header>
+
+  <main class="max-w-3xl mx-auto px-4 py-4">

@@ -1,0 +1,52 @@
+<%- include('partials/head', { title: 'Kitchen', showBack: true, showMessages: true }) %>
+<div class="flex items-center justify-between mb-3">
+  <div class="text-sm">Group: <span class="font-semibold"><%= serverName %></span></div>
+  <div class="flex items-center gap-2">
+    <% if (typeof isAdmin !== 'undefined' && isAdmin) { %>
+      <a href="/select-server?next=/kitchen" class="text-blue-600 text-sm underline">Switch group</a>
+    <% } %>
+    <button id="btn-mark-unavail"
+  class="px-3 py-1 bg-slate-700 text-slate-100 rounded text-sm hover:bg-slate-600 border border-slate-500 shadow-sm transition">
+  Mark Unavailable
+</button>
+
+  </div>
+</div>
+<div class="grid gap-2">
+  <h3 class="font-semibold">Live Orders</h3>
+  <div id="orders" class="space-y-3"></div>
+</div>
+
+<div id="avail-modal" class="hidden">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="font-semibold">Manage Availability</h3>
+      <button id="avail-cancel" class="text-sm text-slate-600">Cancel</button>
+    </div>
+    <div id="avail-list" class="modal-body"></div>
+    <div class="modal-footer">
+      <div class="text-xs text-slate-500">Server #<span id="avail-server"><%= server %></span></div>
+      <button id="avail-apply" class="btn-primary">Apply</button>
+    </div>
+  </div>
+</div>
+
+<div id="messages-modal" class="hidden">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="font-semibold">Messages — <%= serverName %></h3>
+      <button id="msg-close" class="text-sm text-slate-600">Close</button>
+    </div>
+    <div id="messages-list" class="modal-body space-y-2 max-h-72 overflow-y-auto text-sm"></div>
+    <div class="modal-footer gap-2">
+      <input id="msg-input" type="text" placeholder="Type a message" class="flex-1 border rounded px-2 py-1" />
+      <button id="msg-send" class="btn-primary">Send</button>
+    </div>
+  </div>
+  <div class="modal-backdrop"></div>
+  <div class="modal-position"></div>
+  <div class="modal-position"></div>
+</div>
+<div id="bootstrap" data-server="<%= server %>"></div>
+<script src="/public/js/kitchen.js?v=<%= assetVersion %>"></script>
+<%- include('partials/foot') %>

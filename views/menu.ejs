@@ -1,0 +1,30 @@
+<%- include('partials/head', { title: 'Main Menu', showLogout: true }) %>
+<div class="grid gap-6">
+  <div class="flex items-center justify-between">
+    <div>
+  <h2 class="text-2xl font-bold">Nexus Dashboard 2025 Edition</h2>
+      <div class="text-sm text-slate-500">Make billing fast — choose an action</div>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    <% if (role === 'admin') { %>
+      <a href="/admin/stats" class="main-cta block text-center py-4 font-semibold">STATISTICS</a>
+      <a href="/history" class="main-cta block text-center py-4 font-semibold">ORDER HISTORY</a>
+      <a href="/admin/messages" class="main-cta block text-center py-4 font-semibold">MESSAGES</a>
+      <a href="/admin/reset-page" class="main-cta block text-center py-4 font-semibold">RESET SYSTEM</a>
+    <% } else { %>
+      <a href="/select-server?next=/billing" class="main-cta block text-center py-4 font-semibold">SEND BILL</a>
+      <a href="/select-server?next=/kitchen" class="main-cta block text-center py-4 font-semibold">RECEIVE BILL</a>
+    <% } %>
+  </div>
+
+  <div class="author-bar">
+    <span class="mr-2">-</span>
+      <img src="/public/img/har.png?v=<%= assetVersion %>" alt="Harish C" class="author-photo" onerror="this.classList.add('hidden')" />
+    <span class="ml-2 font-semibold">Harish C</span>
+    
+  </div>
+
+</div>
+<%- include('partials/foot') %>

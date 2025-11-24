@@ -1,0 +1,104 @@
+
+[
+  {
+    "id": "dip-cakes",
+    "name": "Dip Cakes (2pcs)",
+    "price": 30,
+    "cost": 15
+  },
+  {
+    "id": "bread-halwa",
+    "name": "Bread Halwa",
+    "price": 30,
+    "cost": 20
+  },
+  {
+    "id": "biscuit-truffle",
+    "name": "Biscuit truffle",
+    "price": 25,
+    "cost": 15
+  },
+  {
+    "id": "suzhiya-bliss",
+    "name": "Suzhiya Bliss",
+    "price": 25,
+    "cost": 15
+  },
+  {
+    "id": "brownie",
+    "name": "Brownie",
+    "price": 40,
+    "cost": 27
+  },
+  {
+    "id": "jeera-shots",
+    "name": "Jeera shots (2pcs)",
+    "price": 25,
+    "cost": 15
+  },
+  {
+    "id": "corn-chaat",
+    "name": "Corn Chaat",
+    "price": 25,
+    "cost": 15
+  },
+  {
+    "id": "samosa",
+    "name": "Samosa (2pcs)",
+    "price": 25,
+    "cost": 15
+  },
+  {
+    "id": "masal-puri",
+    "name": "Masal puri",
+    "price": 30,
+    "cost": 20
+  },
+  {
+    "id": "sandwich",
+    "name": "Sandwich",
+    "price": 30,
+    "cost": 15
+  },
+  {
+    "id": "rose-milk",
+    "name": "Rose Milk",
+    "price": 20,
+    "cost": 15
+  },
+  {
+    "id": "sugar-cane-juice",
+    "name": "Sugar Cane Juice",
+    "price": 25,
+    "cost": 10
+  },
+{
+  "id": "dream-combo",
+  "name": "Dream Combo",
+  "price": 149,
+  "image": "dream-combo.png",
+  "combo": true,
+  "components": [
+    { "id": "dip-cakes", "qty": 1 },
+    { "id": "biscuit-truffle", "qty": 1 },
+    { "id": "bread-halwa", "qty": 1 },
+    { "id": "masal-puri", "qty": 1 },
+    { "id": "samosa", "qty": 1 }
+  ]
+},
+{
+  "id": "dynamic-delights",
+  "name": "Dynamic Delights",
+  "price": 149,
+  "image": "dynamic-delights.png",
+  "combo": true,
+  "components": [
+    { "id": "brownie", "qty": 1 },
+    { "id": "suzhiya-bliss", "qty": 1 },
+    { "id": "jeera-shots", "qty": 1 },
+    { "id": "corn-chaat", "qty": 1 },
+    { "id": "sandwich", "qty": 1 },
+    { "id": "rose-milk", "qty": 1}
+  ]
+}
+]

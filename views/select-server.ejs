@@ -1,0 +1,10 @@
+<%- include('partials/head', { title: 'Select Group', showBack: true }) %>
+<h2 class="text-lg font-semibold mb-3">Choose Group</h2>
+<form action="/select-server" method="post" class="space-y-4">
+  <input type="hidden" name="next" value="<%= next %>" />
+  <div class="grid grid-cols-2 gap-3">
+    <button name="server" value="1" class="btn-primary">Boys</button>
+    <button name="server" value="2" class="btn-accent">Girls</button>
+  </div>
+</form>
+<%- include('partials/foot') %>

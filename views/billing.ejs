@@ -1,0 +1,47 @@
+<%- include('partials/head', { title: 'Billing', showBack: true, showMessages: true }) %>
+<div class="flex items-center justify-between mb-3">
+  <div class="text-sm">Group: <span class="font-semibold"><%= serverName %></span></div>
+  <% if (typeof isAdmin !== 'undefined' && isAdmin) { %>
+    <a href="/select-server?next=/billing" class="text-blue-600 text-sm underline">Switch group</a>
+  <% } %>
+  
+</div>
+<div class="grid gap-4">
+  <div id="items" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+  <div class="bg-white rounded-xl shadow p-3">
+    <h3 class="font-semibold mb-2">Current Bill</h3>
+    <div id="bill-items" class="space-y-2"></div>
+    <div class="mt-3 flex items-center justify-between">
+      <div class="text-lg font-bold">Grand Total: ₹<span id="grand-total">0</span></div>
+      <button id="proceed" class="btn-primary">Proceed</button>
+    </div>
+  </div>
+  <div id="confirm" class="hidden bg-white rounded-xl shadow p-3">
+    <h3 class="font-semibold mb-2">Confirm Order</h3>
+    <div class="text-sm">Token: <span id="confirm-token" class="font-bold text-green-700"></span></div>
+    <div id="confirm-list" class="text-sm mt-2"></div>
+    <div class="mt-3 flex gap-2">
+      <button id="checkout" class="btn-accent">Checkout</button>
+      <button id="cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+<div id="messages-modal" class="hidden">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="font-semibold">Messages — <%= serverName %></h3>
+      <button id="msg-close" class="text-sm text-slate-600">Close</button>
+    </div>
+    <div id="messages-list" class="modal-body space-y-2 max-h-72 overflow-y-auto text-sm"></div>
+    <div class="modal-footer gap-2">
+      <input id="msg-input" type="text" placeholder="Type a message" class="flex-1 border rounded px-2 py-1" />
+      <button id="msg-send" class="btn-primary">Send</button>
+    </div>
+  </div>
+  <div class="modal-backdrop"></div>
+  <div class="modal-position"></div>
+  <div class="modal-position"></div>
+</div>
+<div id="bootstrap" data-server="<%= server %>" data-items=' <%- JSON.stringify(items) %> '></div>
+<script src="/public/js/billing.js?v=<%= assetVersion %>"></script>
+<%- include('partials/foot') %>
