@@ -413,7 +413,6 @@ If this project helps your event or inspires your work, please consider giving i
 For issues, questions, or feature requests:
 - 🐛 Open an [Issue](https://github.com/harishc-dev/Restaurant-billing-app/issues)
 - 💬 Start a [Discussion](https://github.com/harishc-dev/Restaurant-billing-app/discussions)
-- 📧 Email: contact@harishc-dev.me
 
 ---
 
